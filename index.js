@@ -1,11 +1,32 @@
-const app = require("express")();
-const pino = require("pino-http")();
+// Bringing...
+require("dotenv").config();
+const express = require("express");
+const pino = require("pino");
+const pretty = require("pino-pretty");
 
-app.use(pino);
+// Starting...
+// app.use(pino);
+const app = express();
+const logger = pino(pretty()); // not logger = pino();
 
-app.get("/", function (req, res) {
-  req.log.info("okay");
-  res.send("coming now...");
+app.use("/", function (req, res, next) {
+  logger.info(
+    {
+      req: {
+        method: req.method,
+        url: req.url,
+      },
+    },
+    "Incoming request!"
+  );
+  next();
 });
 
-app.listen(3007);
+app.get("/", (req, res) => {
+  logger.info("Handling GET Request!");
+  res.send("Hello from Browser!");
+});
+
+app.listen(process.env.APP_PORT, () => {
+  logger.info(`Server is listening on port ${process.env.APP_PORT}`);
+});

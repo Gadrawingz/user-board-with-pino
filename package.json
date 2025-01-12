@@ -1,0 +1,34 @@
+{
+  "name": "user-board-pino",
+  "version": "1.0.0",
+  "description": "User Dashboard with logging using pino",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gadrawingz/user-board-with-pino.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "pino",
+    "logging"
+  ],
+  "author": "Gad Iradufasha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gadrawingz/user-board-with-pino/issues"
+  },
+  "homepage": "https://github.com/Gadrawingz/user-board-with-pino#readme",
+  "dependencies": {
+    "express": "^4.21.2",
+    "pino": "^9.6.0",
+    "pino-http": "^10.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
